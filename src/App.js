@@ -1,26 +1,45 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from "./Header";
+import MainContent from "./MainContent";
+import Sidebar from "./Sidebar";
+import Store from './Store';
+import { Route } from 'react-router-dom';
+import NoteNav from "./NoteNav";
+import FolderNavNoteDisplay from "./FolderNavNoteDisplay";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+
+    state= {
+            notes: [],
+           folders: []
+
+   };
+
+   componentDidMount() {
+       setTimeout(() => this.setState(Store), 0);
+   }
+
+
+    render() {
+        return (
+            <div className='main-div'>
+                <Route path='/' component={Header}/>
+                <div className='content-div'>
+                    <Route path='/' component={Sidebar}/>
+                    <hr />
+                    <Route exact path='/' component={MainContent}/>
+                    <Route path='/note/:name' component={NoteNav} />
+                    <Route path='/name/:folderId'
+                           render = {() =>
+                        <FolderNavNoteDisplay
+
+                    /> }
+                    />
+                    {/*<Route path='/name/:folderId' component={FolderNavNoteDisplay} />*/}
+                </div>
+            </div>
+        )
+    }
 }
 
 export default App;
