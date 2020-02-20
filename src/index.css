@@ -1,54 +1,389 @@
 * {
-  margin: 0px;
+  /*margin: 0px;*/
 }
-
+body{
+  font-family:arial,sans-serif;
+  font-size:80%;
+  margin:3em;
+  background: #444;
+  color:#fff;
+}
 /*Header*/
 
-.nav-text {
+.knockout {
+  background: url(http://apod.nasa.gov/apod/image/0603/coma_misti.jpg) -80px -80px;
+  color: red;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  font-weight: bold;
+  font-size: 100px;
+  font-family: arial, helvetica;
+  width: 600px;
+  margin: 20px auto;
+  text-align: center;
+  z-index: 40;
+}
+.nav-span:hover,.nav-span:focus{
+  -moz-box-shadow:10px 10px 7px rgba(0,0,0,.7);
+  -webkit-box-shadow: 10px 10px 7px rgba(0,0,0,.7);
+  box-shadow:10px 10px 7px rgba(0,0,0,.7);
+  -webkit-transform: scale(1.25);
+  -moz-transform: scale(1.25);
+  -o-transform: scale(1.25);
+  position:relative;
+  z-index:5;
+}
+
+.nav-buttons {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 20vh;
-  background-color: blue;
+  justify-content: space-around;
 }
 
-.header-nav {
-  font-size: 10vh;
+/*buttons*/
+
+.note {
+  height: 30px !important;
 }
 
-/*Main body */
-
-button {
-  width: 100px;
-  height: 7vh;
-  margin: 1vh;
+.header {
+  height: 35px !important;
 }
 
-section {
-  width: 500px;
-  height: 9vh;
-  margin: 2vh;
-  border: 1px solid black;
+.para-note {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
 }
+
+.glow-on-hover {
+  width: 180px;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+}
+
+.glow-on-hover:before {
+  content: '';
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -2px;
+  left:-2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+}
+
+.glow-on-hover:active {
+  color: #000
+}
+
+.glow-on-hover:active:after {
+  background: transparent;
+}
+
+.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
+/*
+Body
+*/
 
 .content-div {
   display: flex;
 }
 
 .content-col-small {
-  padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-
   width: 33%;
 }
 
 .content-col-large {
-  padding: 10px;
   width: 69%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.AddNote {
+  flex-direction: column !important;
+}
+
+.AddFolder {
+  flex-direction: column !important;
+}
+
+.noteh2 {
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+/*@import url(https://fonts.googleapis.com/css?family=Courgette&display=swap);*/
+@import url(https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap);
+
+.postit-surr {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.postit {
+  overflow-wrap: break-word;
+  line-height: 1;
+  text-align:center;
+  width: 200px;
+  margin: 25px 10px 0px 10px;
+  min-height:200px;
+  max-height:200px;
+  position:relative;
+  border:1px solid #E8E8E8;
+  font-family: 'Shadows Into Light', cursive;
+  /*font-family: 'Courgette', cursive;*/
+  /*font-family:'Reenie Beanie';*/
+  font-size:22px;
+  border-bottom-right-radius: 60px 5px;
+  display:inline-block;
+  background: #ffff88; /* Old browsers */
+  background: -moz-linear-gradient(-45deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(81%,#ffff88), color-stop(82%,#ffff88), color-stop(82%,#ffff88), color-stop(100%,#ffffc6)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(-45deg, #ffff88 81%,#ffff88 82%,#ffff88 82%,#ffffc6 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(-45deg, #ffff88 81%,#ffff88 82%,#ffff88 82%,#ffffc6 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(-45deg, #ffff88 81%,#ffff88 82%,#ffff88 82%,#ffffc6 100%); /* IE10+ */
+  background: linear-gradient(135deg, #ffff88 81%,#ffff88 82%,#ffff88 82%,#ffffc6 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffff88', endColorstr='#ffffc6',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
 
+/*.postit:after {
+  content: "";
+  position:absolute;
+  z-index:-1;
+  right:-0px; bottom:20px;
+  width:200px;
+  height: 25px;
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow:2px 15px 5px rgba(0, 0, 0, 0.40);
+  -moz-transform: matrix(-1, -0.1, 0, 1, 0, 0);
+  -webkit-transform: matrix(-1, -0.1, 0, 1, 0, 0);
+  -o-transform: matrix(-1, -0.1, 0, 1, 0, 0);
+  -ms-transform: matrix(-1, -0.1, 0, 1, 0, 0);
+  transform: matrix(-1, -0.1, 0, 1, 0, 0);
+}*/
+
+/*.posit {
+  -moz-box-shadow:5px 5px 7px rgba(33,33,33,1);
+  -webkit-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+  box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+  -moz-transition:-moz-transform .15s linear;
+  -o-transition:-o-transform .15s linear;
+  -webkit-transition:-webkit-transform .15s linear;
+}*/
+
+.postit:hover, .postit:focus {
+
+  -moz-box-shadow:10px 10px 7px rgba(0,0,0,.7);
+  -webkit-box-shadow: 10px 10px 7px rgba(0,0,0,.7);
+  box-shadow:10px 10px 7px rgba(0,0,0,.7);
+  -webkit-transform: scale(1.25);
+  -moz-transform: scale(1.25);
+  -o-transform: scale(1.25);
+  position:relative;
+  z-index:5;
+}
+
+
+/*
+Forms*/
+
+form {
+  width: 60%;
+  padding: 10px 20px;
+  background: #f4f7f8;
+  margin: 10px auto;
+  padding: 20px;
+  background: #f4f7f8;
+  border-radius: 8px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+
+}
+
+fieldset{
+  border: none;
+}
+
+legend {
+  font-size: 1.4em;
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #444;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="datetime"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="time"],
+input[type="url"],
+textarea,
+select {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  background: rgba(255,255,255,.1);
+  border: none;
+  border-radius: 4px;
+  font-size: 15px;
+  margin: 0;
+  outline: 0;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  background-color: #e8eeef;
+  color:#8a97a0;
+  -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  margin-bottom: 30px;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="datetime"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="time"]:focus,
+input[type="url"]:focus,
+textarea:focus,
+select:focus{
+  background: #d2d9dd;
+}
+
+select{
+  -webkit-appearance: menulist-button;
+  height:35px;
+}
+/*.number {
+  background: #1abc9c;
+  color: #fff;
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  font-size: 0.8em;
+  margin-right: 4px;
+  line-height: 30px;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+  border-radius: 15px 15px 15px 0px;
+}*/
+
+input[type="submit"],
+input[type="button"]
+{
+  position: relative;
+  display: block;
+  padding: 19px 39px 18px 39px;
+  color: #FFF;
+  margin: 0 auto;
+  background: #1abc9c;
+  font-size: 18px;
+  text-align: center;
+  font-style: normal;
+  width: 100%;
+  border: 1px solid #16a085;
+  border-width: 1px 1px 3px;
+  margin-bottom: 10px;
+}
+input[type="submit"]:hover,
+input[type="button"]:hover
+{
+  background: #109177;
+}
+
+/*Paper effect*/
+
+
+/*@import url('https://fonts.googleapis.com/css?family=Dancing+Script');*/
+
+/* styling paper */
+.paper {
+  background-color: rgba(0,0,0,0.1);
+  width: 600px;
+  height: 700px;
+  position: relative;
+  margin: 20px auto;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: white;
+  box-shadow: 0px 0px 5px 0px #888;
+}
+
+/* styling red vertical line */
+.paper::before {
+  content: '';
+  width: 2px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 40px;
+  background-color: rgba(255,0,0,0.6);
+}
+
+/* styling blue horizontal lines */
+.pattern {
+  height: 100%;
+  width: 100%;
+  background-image: repeating-linear-gradient(white 0px, white 24px, teal 25px);
+}
+
+/* styling text content */
+
+.content {
+  color: #444;
+  padding-top: 6px;
+  padding-left: 56px;
+  padding-right: 16px;
+  line-height: 25px;
+  font-family: 'Shadows Into Light', cursive;
+  /*font-family: 'Dancing Script', cursive;*/
+  font-size: 19px;
+  letter-spacing: 1px;
+  word-spacing: 5px;
 }
