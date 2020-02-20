@@ -1,8 +1,11 @@
 Need Node Server to make app work: 
 
 git clone https://github.com/tomatau/noteful-json-server
+
 cd ./noteful-json-server
+
 npm install
+
 npm start
 
 
