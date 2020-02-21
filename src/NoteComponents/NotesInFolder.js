@@ -1,6 +1,7 @@
 import React from 'react';
 import Note from "./Note";
-import ApiContext from "./ApiContext";
+import ApiContext from "../ApiContext";
+import PropTypes from "prop-types";
 
 class NotesInFolder extends React.Component {
 
@@ -27,7 +28,7 @@ class NotesInFolder extends React.Component {
         const noteDisplay = noteMatch.map (noteMatch => {
 
             return (
-                    <Note onDeleteNote={this.handleDeleteNote} id={noteMatch.id} name={noteMatch.name} modified={noteMatch.modified}/>
+                    <Note onDeleteNote={this.handleDeleteNote} key={noteMatch.id} id={noteMatch.id} name={noteMatch.name} modified={noteMatch.modified}/>
             )
 
     })
@@ -37,6 +38,12 @@ class NotesInFolder extends React.Component {
             </section>
         )
                 }
+}
+
+NotesInFolder.propTypes = {
+    name: PropTypes.string,
+    id: PropTypes.string,
+    modified: PropTypes.string
 }
 
 export default NotesInFolder

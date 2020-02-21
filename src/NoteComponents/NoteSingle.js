@@ -1,5 +1,6 @@
 import React from 'react';
 import { format } from 'date-fns'
+import PropTypes from "prop-types";
 
 class NoteSingle extends React.Component {
 
@@ -17,10 +18,14 @@ class NoteSingle extends React.Component {
                     </div>
                 </div>
             </div>
-
-
         )
     }
+}
+
+NoteSingle.propTypes = {
+    name: PropTypes.string,
+    id: PropTypes.string,
+    modified: PropTypes.string
 }
 
 export default NoteSingle

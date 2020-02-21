@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import config from "./config";
-import ApiContext from "./ApiContext";
+import config from "../config";
+import ApiContext from "../ApiContext";
 import { format } from 'date-fns'
+import PropTypes from 'prop-types'
+
 
 class Note extends React.Component {
 
@@ -40,7 +42,7 @@ class Note extends React.Component {
     render() {
         const { name, id, modified } = this.props
         return (
-            <div className='postit-surr'>
+            <div className='postit-surr' key={id}>
                 <Link to={`/note/${id}`}>
                     <div className='postit div-button' key={id}>
                         <h2>
@@ -65,5 +67,12 @@ class Note extends React.Component {
         )
     }
 }
+
+Note.propTypes = {
+    name: PropTypes.string,
+    id: PropTypes.string,
+    modified: PropTypes.string
+}
+
 
 export default Note

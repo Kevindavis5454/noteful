@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import NotefulForm from "./NotefulForm";
-import ApiContext from "./ApiContext";
-import config from "./config";
+import NotefulForm from "../NotefulForm";
+import ApiContext from "../ApiContext";
+import config from "../config";
 
 export default class AddFolder extends Component {
     static defaultProps = {
@@ -34,6 +34,7 @@ export default class AddFolder extends Component {
             })
             .catch(error => {
                 console.error({ error })
+                console.log("I Broke!")
             })
     }
 

@@ -1,26 +1,24 @@
 import React from 'react';
 import Header from "./Header";
-import MainNotes from "./MainNotes";
-import MainFolders from "./MainFolders";
+import MainNotes from "./NoteComponents/MainNotes";
+import MainFolders from "./FolderComponents/MainFolders";
 import { Route } from 'react-router-dom';
-import NoteSingle from "./NoteSingle";
-import NotesInFolder from "./NotesInFolder";
+import NoteSingle from "./NoteComponents/NoteSingle";
+import NotesInFolder from "./NoteComponents/NotesInFolder";
 import config from "./config";
 import ApiContext from "./ApiContext";
-import AddNote from "./AddNote";
-import AddFolder from "./AddFolder";
-
+import AddNote from "./NoteComponents/AddNote";
+import AddFolder from "./FolderComponents/AddFolder";
+import Error from "./Error";
 
 class App extends React.Component {
 
     state= {
             notes: [],
            folders: []
-
    };
 
    componentDidMount() {
-       /*setTimeout(() => this.setState(Store), 0);*/
        Promise.all([
            fetch(`${config.API_ENDPOINT}/notes`),
            fetch(`${config.API_ENDPOINT}/folders`)
@@ -62,6 +60,14 @@ class App extends React.Component {
         })
     }
 
+    handleDeleteFolder = folderId => {
+       this.setState({
+           folders: this.state.folders.filter(folder => folder.id !== folderId),
+           notes: this.state.notes.filter(note => note.folderId !== folderId)
+       })
+
+    }
+
     handleDeleteNote = noteId => {
         this.setState({
             notes: this.state.notes.filter(note => note.id !== noteId)
@@ -69,6 +75,7 @@ class App extends React.Component {
     }
 
     render() {
+        console.log(this.state)
        const {notes , folders} = this.state
         const value = {
             notes: this.state.notes,
@@ -76,8 +83,10 @@ class App extends React.Component {
             addFolder: this.handleAddFolder,
             addNote: this.handleAddNote,
             deleteNote: this.handleDeleteNote,
+            deleteFolder: this.handleDeleteFolder,
         }
         return (
+
             <ApiContext.Provider value={value}>
             <div className='main-div'>
                 <div className='header-div'>
@@ -85,6 +94,7 @@ class App extends React.Component {
                     <hr />
                 </div>
                 <div className='content-div'>
+                    <Error>
                     <Route path='/'
                            render={routeProps => (
                                <MainFolders
@@ -93,15 +103,20 @@ class App extends React.Component {
                                    {...routeProps}
                           />)
                            }/>
+                    </Error>
                     <hr />
+                    <Error>
                     <Route exact path='/'
                            render={routeProps => (
                                <MainNotes
                                    folders={folders}
                                    notes={notes}
                                    {...routeProps}
-                               />)}/>
-                    <Route path='/note/:id'
+                               />
+                               )}/>
+                    </Error>
+                               <Error>
+                               <Route path='/note/:id'
                            render={routeProps => (
                                <NoteSingle
                                folders={folders}
@@ -109,6 +124,9 @@ class App extends React.Component {
                                {...routeProps}
                                />
                            )} />
+
+                               </Error>
+                           <Error>
                     <Route path='/name/:folderId'
                            render={routeProps => (
                                <NotesInFolder
@@ -117,6 +135,7 @@ class App extends React.Component {
                                {...routeProps}
                                />
                            )}/>
+                           </Error>
                     <Route path='/AddNote'
                            render={routeProps => (
                                <AddNote
@@ -138,6 +157,7 @@ class App extends React.Component {
                 </div>
             </div>
             </ApiContext.Provider>
+
         )
     }
 }

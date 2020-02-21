@@ -1,6 +1,4 @@
-* {
-  /*margin: 0px;*/
-}
+
 body{
   font-family:arial,sans-serif;
   font-size:80%;
@@ -152,7 +150,6 @@ Body
   display: flex;
   justify-content: center;
 }
-/*@import url(https://fonts.googleapis.com/css?family=Courgette&display=swap);*/
 @import url(https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap);
 
 .postit-surr {
@@ -171,8 +168,6 @@ Body
   position:relative;
   border:1px solid #E8E8E8;
   font-family: 'Shadows Into Light', cursive;
-  /*font-family: 'Courgette', cursive;*/
-  /*font-family:'Reenie Beanie';*/
   font-size:22px;
   border-bottom-right-radius: 60px 5px;
   display:inline-block;
@@ -185,31 +180,6 @@ Body
   background: linear-gradient(135deg, #ffff88 81%,#ffff88 82%,#ffff88 82%,#ffffc6 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffff88', endColorstr='#ffffc6',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
-
-/*.postit:after {
-  content: "";
-  position:absolute;
-  z-index:-1;
-  right:-0px; bottom:20px;
-  width:200px;
-  height: 25px;
-  background: rgba(0, 0, 0, 0.2);
-  box-shadow:2px 15px 5px rgba(0, 0, 0, 0.40);
-  -moz-transform: matrix(-1, -0.1, 0, 1, 0, 0);
-  -webkit-transform: matrix(-1, -0.1, 0, 1, 0, 0);
-  -o-transform: matrix(-1, -0.1, 0, 1, 0, 0);
-  -ms-transform: matrix(-1, -0.1, 0, 1, 0, 0);
-  transform: matrix(-1, -0.1, 0, 1, 0, 0);
-}*/
-
-/*.posit {
-  -moz-box-shadow:5px 5px 7px rgba(33,33,33,1);
-  -webkit-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
-  box-shadow: 5px 5px 7px rgba(33,33,33,.7);
-  -moz-transition:-moz-transform .15s linear;
-  -o-transition:-o-transform .15s linear;
-  -webkit-transition:-webkit-transform .15s linear;
-}*/
 
 .postit:hover, .postit:focus {
 
@@ -300,19 +270,6 @@ select{
   -webkit-appearance: menulist-button;
   height:35px;
 }
-/*.number {
-  background: #1abc9c;
-  color: #fff;
-  height: 30px;
-  width: 30px;
-  display: inline-block;
-  font-size: 0.8em;
-  margin-right: 4px;
-  line-height: 30px;
-  text-align: center;
-  text-shadow: 0 1px 0 rgba(255,255,255,0.2);
-  border-radius: 15px 15px 15px 0px;
-}*/
 
 input[type="submit"],
 input[type="button"]
@@ -338,9 +295,6 @@ input[type="button"]:hover
 }
 
 /*Paper effect*/
-
-
-/*@import url('https://fonts.googleapis.com/css?family=Dancing+Script');*/
 
 /* styling paper */
 .paper {
@@ -382,7 +336,6 @@ input[type="button"]:hover
   padding-right: 16px;
   line-height: 25px;
   font-family: 'Shadows Into Light', cursive;
-  /*font-family: 'Dancing Script', cursive;*/
   font-size: 19px;
   letter-spacing: 1px;
   word-spacing: 5px;

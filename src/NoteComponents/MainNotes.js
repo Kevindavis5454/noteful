@@ -1,12 +1,11 @@
 import React from 'react';
 import Note from "./Note";
-import ApiContext from "./ApiContext";
+import ApiContext from "../ApiContext";
 
 class MainNotes extends React.Component {
-
     static defaultProps = {
         match: {
-            params: {}
+            params: {},
         }
     }
 
@@ -17,7 +16,7 @@ class MainNotes extends React.Component {
     static contextType = ApiContext
 
     render() {
-        const noteName = this.props.notes.map(note => <Note onDeleteNote={this.handleDeleteNote} id={note.id} name={note.name} modified={note.modified}/>)
+        const noteName =this.props.notes.map(note => <Note key={note.id} onDeleteNote={this.handleDeleteNote} id={note.id} name={note.name} modified={note.modified}/>)
         return (
             <section className='content-col-large'>
                 {noteName}
