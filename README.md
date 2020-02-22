@@ -1,3 +1,27 @@
+Noteful: Note taking React App
+
+An app to help you organize your thoughts and keep your life on track!
+
+Link to Live Page: Under Construction- Backend being built
+
+Technologies Used: JavaScript, REACT.js, RESTful API's
+
+ScreenShot:
+
+
+![Landing Page](assets/notefulSS.png?raw=true "Landing Page")
+
+
+
+
+
+
+
+
+
+
+
+
 Need Node Server to make app work: 
 
 git clone https://github.com/tomatau/noteful-json-server
