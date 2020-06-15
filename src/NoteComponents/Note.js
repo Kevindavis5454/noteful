@@ -50,7 +50,7 @@ class Note extends React.Component {
                         </h2>
                         <p className='para-note'>
                             {content}
-                          Last Modified: {format(new Date(modified), 'MM/dd/yyyy')}
+                          {/*Last Modified: {format(new Date(modified), 'MM/dd/yyyy')}*/}
                         </p>
                     </div>
                 </Link>
