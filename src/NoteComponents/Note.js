@@ -40,15 +40,16 @@ class Note extends React.Component {
     }
 
     render() {
-        const { name, id, modified } = this.props
+        const { title, id, content } = this.props
         return (
             <div className='postit-surr' key={id}>
                 <Link to={`/note/${id}`}>
                     <div className='postit div-button' key={id}>
                         <h2>
-                        {name}
+                        {title}
                         </h2>
                         <p className='para-note'>
+                            {content}
                           Last Modified: {format(new Date(modified), 'MM/dd/yyyy')}
                         </p>
                     </div>

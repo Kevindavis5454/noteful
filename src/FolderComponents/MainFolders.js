@@ -17,7 +17,7 @@ class MainFolders extends React.Component {
     static contextType = ApiContext
 
     render() {
-        const folderName = this.props.folders.map(name => <Folder onDeleteFolder={this.handleDeleteFolder} key={name.id} folderId={name.id} id={name.id} folder={name.name} />)
+        const folderName = this.props.folders.map(name => <Folder onDeleteFolder={this.handleDeleteFolder} key={name.id} folderId={name.id} id={name.id} folder={name.folder_name} />)
         return (
             <section className='content-col-small'>
                 {folderName}
