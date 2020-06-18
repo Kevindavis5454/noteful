@@ -7,15 +7,15 @@ class NoteSingle extends React.Component {
 
 
     render() {
-        const note = this.props.notes.find(n => n.id === this.props.match.params.id )
+        const note = this.props.notes.find(n => n.id === this.props.id )
         console.log(note);
         return (
             <div className='paper content-col-large'>
                 <div className='pattern'>
                     <div className='content'>
-                    {this.props.title}
+                    {note.title}
                     <br /><br />
-                    {this.props.content}
+                    {note.content}
                     <br /><br />
                     {/*Last Modified: {format(new Date(note.modified), 'MM/dd/yyyy')}*/}
                     </div>
