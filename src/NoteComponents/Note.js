@@ -35,7 +35,6 @@ class Note extends React.Component {
                 /*this.context.deleteNote(noteId)
                 // allow parent to perform extra behaviour*/
                 this.props.onDeleteNote(noteId)
-                window.location.reload();
             })
             .catch(error => {
                 console.error({ error })
