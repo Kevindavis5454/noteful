@@ -7,7 +7,7 @@ class NoteSingle extends React.Component {
 
 
     render() {
-        const note = this.props.notes.find(n => n.id === this.props.match.params.id )
+        const note = this.props.notes.find(n => n.id === this.props.notes.id )
         console.log(note);
         const { title, content } = note
         return (
