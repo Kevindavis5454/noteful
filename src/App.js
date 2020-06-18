@@ -116,7 +116,7 @@ class App extends React.Component {
                                )}/>
                     </Error>
                                <Error>
-                               <Route path='/note/:id'
+                               <Route path='/notes/:note_id'
                            render={routeProps => (
                                <NoteSingle
                                folders={folders}
