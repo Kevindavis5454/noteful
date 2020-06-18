@@ -159,6 +159,7 @@ Body
 }
 .postit {
   overflow-wrap: break-word;
+  overflow-y: scroll;
   line-height: 1;
   text-align:center;
   width: 200px;
