@@ -43,7 +43,7 @@ class Note extends React.Component {
         const { title, id, content } = this.props
         return (
             <div className='postit-surr' key={id}>
-                <Link to={`/note/${id}`}>
+                <Link to={`/notes/${id}`}>
                     <div className='postit div-button' key={id}>
                         <h2>
                         {title}
