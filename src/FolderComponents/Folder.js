@@ -29,8 +29,6 @@ class Folder extends React.Component {
                 return res.json()
             })
             .then(() => {
-                this.context.deleteFolder(folderId)
-                // allow parent to perform extra behaviour
                 this.props.onDeleteFolder(folderId)
             })
             .catch(error => {
