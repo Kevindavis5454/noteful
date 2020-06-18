@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap);
 
 body{
   font-family:arial,sans-serif;
@@ -9,7 +10,7 @@ body{
 /*Header*/
 
 .knockout {
-  background: url(http://apod.nasa.gov/apod/image/0603/coma_misti.jpg) -80px -80px;
+  background: url(https://apod.nasa.gov/apod/image/0603/coma_misti.jpg) -80px -80px;
   color: red;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
@@ -150,7 +151,6 @@ Body
   display: flex;
   justify-content: center;
 }
-@import url(https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap);
 
 .postit-surr {
   display: flex;
