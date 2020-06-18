@@ -13,10 +13,11 @@ export default class AddNote extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
+        const { title, content, folderId } = e.target
         const newNote = {
-            title: e.target['note-name'].value,
-            content: e.target['note-content'].value,
-            folderId: e.target['note-folder-id'].value,
+            title: title.value,
+            content: content.value,
+            folderId: folderId.value,
             /*modified: new Date(),*/
         }
         fetch(`${config.API_ENDPOINT}/notes`, {
@@ -31,9 +32,9 @@ export default class AddNote extends Component {
                     return res.json().then(e => Promise.reject(e))
                 return res.json()
             })
-            .then(note => {
-                this.context.addNote(note)
-                this.props.history.push(`/name/${note.folderId}`)
+            .then(data => {
+                this.context.addNote(data)
+                this.props.history.push(`/`)
 
             })
             .catch(error => {
@@ -51,22 +52,22 @@ export default class AddNote extends Component {
                         <label htmlFor='note-name-input'>
                             Name
                         </label>
-                        <input type='text' id='note-name-input' name='note-title' required/>
+                        <input type='text' id='title' name='title' required/>
                     </div>
                     <div className='field'>
                         <label htmlFor='note-content-input'>
                             Content
                         </label>
-                        <textarea id='note-content-input' name='note-content' />
+                        <textarea id='content' name='content' />
                     </div>
                     <div className='field'>
                         <label htmlFor='note-folder-select'>
                             Folder
                         </label>
-                        <select id='note-folder-select' name='note-folder-id' required>
+                        <select id='folderId' name='folderId' required>
                             {folders.map(folder =>
                                 <option key={folder.id} value={folder.id}>
-                                    {folder.name}
+                                    {folder.folder_name}
                                 </option>
                             )}
                         </select>
