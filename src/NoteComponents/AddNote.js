@@ -17,9 +17,10 @@ export default class AddNote extends Component {
         const newNote = {
             title: title.value,
             content: content.value,
-            folderId: folderId.value,
+            folder_id: folderId.value,
             /*modified: new Date(),*/
         }
+        console.log(folderId.value)
         fetch(`${config.API_ENDPOINT}/notes`, {
             method: 'POST',
             headers: {
