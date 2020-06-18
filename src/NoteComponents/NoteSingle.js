@@ -14,7 +14,7 @@ class NoteSingle extends React.Component {
     static contextType = ApiContext
 
     render() {
-
+        console.log(this.props)
         const note = this.props.notes.filter(n => n.id === this.props.match.params.note_id )
         console.log(note);
         return (
