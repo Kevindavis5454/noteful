@@ -8,39 +8,6 @@ import PropTypes from 'prop-types'
 
 class Note extends React.Component {
 
-    static defaultProps ={
-        onDeleteNote: () => {},
-    }
-
-    static contextType = ApiContext;
-
-    handleClickDelete = e => {
-        e.preventDefault()
-        const noteId = this.props.id
-        console.log(this.props)
-        console.log(noteId)
-
-        fetch(`${config.API_ENDPOINT}/notes/${noteId}`, {
-            method: 'DELETE',
-            headers: {
-                'content-type': 'application/json'
-            },
-        })
-            .then(res => {
-                if (!res.ok)
-                    return res.json().then(e => Promise.reject(e))
-                return res.json()
-            })
-            .then(() => {
-                this.context.deleteNote(noteId)
-                // allow parent to perform extra behaviour
-                this.props.onDeleteNote(noteId)
-            })
-            .catch(error => {
-                console.error({ error })
-            })
-    }
-
     render() {
         const { title, id, content } = this.props
         return (
@@ -56,15 +23,7 @@ class Note extends React.Component {
                         </p>
                     </div>
                 </Link>
-                <button
-                className='glow-on-hover note'
-                type='button'
-                onClick={this.handleClickDelete}
-                >
-                    <span>
-                    Delete
-                    </span>
-                </button>
+
             </div>
 
         )
