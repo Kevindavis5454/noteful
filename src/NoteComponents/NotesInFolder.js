@@ -28,7 +28,7 @@ class NotesInFolder extends React.Component {
         const noteDisplay = noteMatch.map (noteMatch => {
 
             return (
-                    <Note onDeleteNote={this.handleDeleteNote} key={noteMatch.id} id={noteMatch.id} name={noteMatch.name} modified={noteMatch.modified}/>
+                    <Note onDeleteNote={this.handleDeleteNote} key={noteMatch.id} id={noteMatch.id} title={noteMatch.title}/>
             )
 
     })
