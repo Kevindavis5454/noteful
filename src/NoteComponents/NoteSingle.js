@@ -5,13 +5,6 @@ import ApiContext from "../ApiContext";
 
 class NoteSingle extends React.Component {
 
-    static defaultProps = {
-        match: {
-            params: {},
-        }
-    }
-
-    static contextType = ApiContext;
 
     render() {
         const note = this.props.notes.find(n => n.id === this.props.match.params.id )
@@ -32,9 +25,8 @@ class NoteSingle extends React.Component {
 }
 
 NoteSingle.propTypes = {
-    name: PropTypes.string,
+    title: PropTypes.string,
     id: PropTypes.string,
-    modified: PropTypes.string
 }
 
 export default NoteSingle
