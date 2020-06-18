@@ -9,6 +9,7 @@ import config from "./config";
 import ApiContext from "./ApiContext";
 import AddNote from "./NoteComponents/AddNote";
 import AddFolder from "./FolderComponents/AddFolder";
+import Error from "./Error";
 
 class App extends React.Component {
 
@@ -93,6 +94,7 @@ class App extends React.Component {
                     <hr />
                 </div>
                 <div className='content-div'>
+                    <Error>
                     <Route path='/'
                            render={routeProps => (
                                <MainFolders
@@ -101,7 +103,9 @@ class App extends React.Component {
                                    {...routeProps}
                           />)
                            }/>
+                    </Error>
                     <hr />
+                    <Error>
                     <Route exact path='/'
                            render={routeProps => (
                                <MainNotes
@@ -110,7 +114,8 @@ class App extends React.Component {
                                    {...routeProps}
                                />
                                )}/>
-
+                    </Error>
+                               <Error>
                                <Route path='/notes/:note_id'
                            render={routeProps => (
                                <NoteSingle
@@ -120,6 +125,8 @@ class App extends React.Component {
                                />
                            )} />
 
+                               </Error>
+                           <Error>
                     <Route path='/name/:folderId'
                            render={routeProps => (
                                <NotesInFolder
@@ -128,6 +135,7 @@ class App extends React.Component {
                                {...routeProps}
                                />
                            )}/>
+                           </Error>
                     <Route path='/AddNote'
                            render={routeProps => (
                                <AddNote
