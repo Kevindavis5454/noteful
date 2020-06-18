@@ -14,8 +14,8 @@ class NoteSingle extends React.Component {
     static contextType = ApiContext
 
     render() {
-        console.log(this.props.match.params)
-        const note = this.props.notes.find(n => n.id === this.props.match.params.id )
+
+        const note = this.props.notes.find(n => n.id === this.props.match.params.note_id )
         console.log(note);
         return (
             <div className='paper content-col-large'>
