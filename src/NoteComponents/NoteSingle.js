@@ -10,9 +10,9 @@ class NoteSingle extends React.Component {
             <div className='paper content-col-large'>
                 <div className='pattern'>
                     <div className='content'>
-                    {note.title}
+                    {note.params.title}
                     <br /><br />
-                    {note.content}
+                    {note.params.content}
                     <br /><br />
                     {/*Last Modified: {format(new Date(note.modified), 'MM/dd/yyyy')}*/}
                     </div>
