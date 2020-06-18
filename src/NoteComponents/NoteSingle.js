@@ -15,7 +15,7 @@ class NoteSingle extends React.Component {
 
     render() {
         console.log(this.props)
-        const note = this.props.notes.filter(n => n.id === this.props.match.params.note_id )
+        const note = this.props.notes.find(n => n.id === this.props.match.params)
         console.log(note);
         return (
             <div className='paper content-col-large'>
