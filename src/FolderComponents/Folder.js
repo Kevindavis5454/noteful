@@ -30,6 +30,7 @@ class Folder extends React.Component {
             })
             .then(() => {
                 this.props.onDeleteFolder(folderId)
+                window.location.reload();
             })
             .catch(error => {
                 console.error({ error })
