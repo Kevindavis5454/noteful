@@ -5,18 +5,25 @@ import ApiContext from "../ApiContext";
 
 class NoteSingle extends React.Component {
 
+    static defaultProps = {
+        match: {
+            params: {},
+        }
+    }
+
+    static contextType = ApiContext
 
     render() {
-        const note = this.props.notes.find(n => n.id === this.props.notes.id )
+        console.log(this.props.match.params)
+        const note = this.props.notes.find(n => n.id === this.props.match.params.id )
         console.log(note);
-        const { title, content } = note
         return (
             <div className='paper content-col-large'>
                 <div className='pattern'>
                     <div className='content'>
-                    {title}
+                    {note.title}
                     <br /><br />
-                    {content}
+                    {note.content}
                     <br /><br />
                     {/*Last Modified: {format(new Date(note.modified), 'MM/dd/yyyy')}*/}
                     </div>
