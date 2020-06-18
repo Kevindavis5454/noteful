@@ -119,6 +119,7 @@ class App extends React.Component {
                                <Route path='/notes/:note_id'
                            render={routeProps => (
                                <NoteSingle
+                                   {...this.props}
                                folders={folders}
                                notes={notes}
                                {...routeProps}
