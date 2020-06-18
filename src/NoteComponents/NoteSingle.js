@@ -1,8 +1,17 @@
 import React from 'react';
 import { format } from 'date-fns'
 import PropTypes from "prop-types";
+import ApiContext from "../ApiContext";
 
 class NoteSingle extends React.Component {
+
+    static defaultProps = {
+        match: {
+            params: {},
+        }
+    }
+
+    static contextType = ApiContext;
 
     render() {
         const note = this.props.notes.find(n => n.id === this.props.match.params.id )
@@ -10,9 +19,9 @@ class NoteSingle extends React.Component {
             <div className='paper content-col-large'>
                 <div className='pattern'>
                     <div className='content'>
-                    {note.params.title}
+                    {note.title}
                     <br /><br />
-                    {note.params.content}
+                    {note.content}
                     <br /><br />
                     {/*Last Modified: {format(new Date(note.modified), 'MM/dd/yyyy')}*/}
                     </div>
