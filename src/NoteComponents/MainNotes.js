@@ -16,7 +16,7 @@ class MainNotes extends React.Component {
     static contextType = ApiContext
 
     render() {
-        const noteName =this.props.notes.map(note => <Note key={note.id} onDeleteNote={this.handleDeleteNote} id={note.id} name={note.title} content={note.content} /*modified={note.modified}*//>)
+        const noteName =this.props.notes.map(note => <Note key={note.id} onDeleteNote={this.handleDeleteNote} id={note.id} title={note.title} content={note.content} /*modified={note.modified}*//>)
         return (
             <section className='content-col-large'>
                 {noteName}
