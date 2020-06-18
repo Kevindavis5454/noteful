@@ -14,7 +14,7 @@ export default class AddFolder extends Component {
     handleSubmit = e => {
         e.preventDefault()
         const folder = {
-            name: e.target['folder-name'].value
+            folder_name: e.target['folder-name'].value
         }
         fetch(`${config.API_ENDPOINT}/folders`, {
             method: 'POST',
@@ -30,7 +30,7 @@ export default class AddFolder extends Component {
             })
             .then(folder => {
                 this.context.addFolder(folder)
-                this.props.history.push(`/name/${folder.id}`)
+                this.props.history.push(`/folders/${folder.id}`)
             })
             .catch(error => {
                 console.error({ error })
