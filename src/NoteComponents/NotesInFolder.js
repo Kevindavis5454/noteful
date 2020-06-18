@@ -21,7 +21,7 @@ class NotesInFolder extends React.Component {
         console.log(this.props.match.params)
         const folderIdSelect =  this.props.match.params.folderId
         const noteMatch = this.props.notes.filter(note => {
-            if (note.id == folderIdSelect) {
+            if (note.folder_id == folderIdSelect) {
                 return note
             }
         })
