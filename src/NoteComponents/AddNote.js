@@ -14,10 +14,10 @@ export default class AddNote extends Component {
     handleSubmit = e => {
         e.preventDefault()
         const newNote = {
-            name: e.target['note-name'].value,
+            title: e.target['note-name'].value,
             content: e.target['note-content'].value,
             folderId: e.target['note-folder-id'].value,
-            modified: new Date(),
+            /*modified: new Date(),*/
         }
         fetch(`${config.API_ENDPOINT}/notes`, {
             method: 'POST',
@@ -51,7 +51,7 @@ export default class AddNote extends Component {
                         <label htmlFor='note-name-input'>
                             Name
                         </label>
-                        <input type='text' id='note-name-input' name='note-name' required/>
+                        <input type='text' id='note-name-input' name='note-title' required/>
                     </div>
                     <div className='field'>
                         <label htmlFor='note-content-input'>
