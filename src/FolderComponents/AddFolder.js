@@ -13,15 +13,16 @@ export default class AddFolder extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        const folder = {
-            folder_name: e.target['folder-name'].value
+        const { folderName } = e.target
+        const newFolder = {
+            folder_name : folderName.value
         }
         fetch(`${config.API_ENDPOINT}/folders`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(folder),
+            body: JSON.stringify(newFolder),
         })
             .then(res => {
                 if (!res.ok)
@@ -29,8 +30,8 @@ export default class AddFolder extends Component {
                 return res.json()
             })
             .then(folder => {
-                this.context.addFolder(folder)
-                this.props.history.push(`/folders/${folder.id}`)
+                this.context.addFolder(newFolder)
+                this.props.history.push(`/`)
             })
             .catch(error => {
                 console.error({ error })
@@ -47,7 +48,7 @@ export default class AddFolder extends Component {
                         <label htmlFor='folder-name-input'>
                             Name
                         </label>
-                        <input type='text' id='folder-name-input' name='folder-name' required />
+                        <input type='text' id='folderName' name='folderName' required />
                     </div>
                     <div className='buttons'>
                         <button className='glow-on-hover' type='submit'>
