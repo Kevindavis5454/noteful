@@ -25,7 +25,7 @@ class Folder extends React.Component {
         })
             .then(res => {
                 if (!res.ok)
-                    this.props.history.push(`/`)
+                    /*this.props.history.push(`/`)*/
                 this.props.onDeleteFolder(folderId)
             })
             .catch(error => {
