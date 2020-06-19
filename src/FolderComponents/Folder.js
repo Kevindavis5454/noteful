@@ -16,6 +16,7 @@ class Folder extends React.Component {
     handleClickFolderDelete = e => {
         e.preventDefault()
         const folderId = this.props.id
+        console.log(this.props)
 
         fetch(`${config.API_ENDPOINT}/folders/${folderId}`, {
             method: 'DELETE',
