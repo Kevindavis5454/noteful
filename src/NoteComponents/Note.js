@@ -60,7 +60,7 @@ class Note extends React.Component {
 
                 <button
                     className='glow-on-hover note'
-                    type='button'
+                    type='submit'
                     onClick={this.handleClickDelete}
                 >
                     <span>

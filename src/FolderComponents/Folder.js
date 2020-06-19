@@ -16,7 +16,6 @@ class Folder extends React.Component {
     handleClickFolderDelete = e => {
         e.preventDefault()
         const folderId = this.props.id
-        console.log(this.props)
 
         fetch(`${config.API_ENDPOINT}/folders/${folderId}`, {
             method: 'DELETE',
@@ -44,7 +43,7 @@ class Folder extends React.Component {
                 </div>
                  <button
                      className='glow-on-hover note'
-                     type='button'
+                     type='submit'
                      onClick={this.handleClickFolderDelete}
                  >
                     <span>
