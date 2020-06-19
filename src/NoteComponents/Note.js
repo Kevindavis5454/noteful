@@ -28,10 +28,10 @@ class Note extends React.Component {
         })
             .then(res => {
                 if (!res.ok)
-                    /*return res.json().then(e => Promise.reject(e))*/
-                    console.log(res)
-               /* return res.json()*/
-                window.location.href = "/"
+                    this.props.history.push(`/`)
+                this.context.deleteNote(noteId)
+                this.props.onDeleteNote(noteId)
+                /*window.location.href = "/"*/
             })
             /*.then(() => {*/
                 /*this.context.deleteNote(noteId)
