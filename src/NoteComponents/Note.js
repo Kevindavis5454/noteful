@@ -8,8 +8,6 @@ import PropTypes from 'prop-types'
 
 class Note extends React.Component {
 
-
-
     static defaultProps ={
         onDeleteNote: () => {},
     }

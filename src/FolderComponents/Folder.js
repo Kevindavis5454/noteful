@@ -25,8 +25,8 @@ class Folder extends React.Component {
         })
             .then(res => {
                 if (!res.ok)
-                    /*this.props.history.push(`/`)*/
-                this.props.onDeleteFolder(folderId)
+                    window.location.href = "/"
+                /*this.props.onDeleteFolder(folderId)*/
             })
             .catch(error => {
                 console.error({ error })
